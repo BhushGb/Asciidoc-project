@@ -1,14 +1,14 @@
 # Radio Communication – An Asciidoc Project
 
-The article provides an overview of the radio communication.
-
 ## Project Overview
 
-This repository contains HTML and PDF file of Asciidoc Documentation Project created for topic Radio Communication. It is intended for demonstration and learning purposes only.
+- This repository contains HTML and PDF file of Asciidoc Documentation Project created for topic Radio Communication. 
 
-## Purpose 
+- The article in repository provides an overview of the radio communication.
 
-This project demonstrates the structure and workflow of technical documentation written in AsciiDoc. 
+- This project demonstrates the structure and workflow of technical documentation written in AsciiDoc. 
+
+- It is intended for demonstration and learning purposes only.
 
 ## Tools Used
 
