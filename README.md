@@ -1,6 +1,6 @@
 # Radio Communication – An Asciidoc Project
 
-The article provides an overview of the radio communication process
+The article provides an overview of the radio communication.
 
 ## Project Overview
 
