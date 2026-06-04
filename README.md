@@ -8,7 +8,7 @@
 
 - This project demonstrates the structure and workflow of technical documentation written in AsciiDoc. 
 
-- It is intended for demonstration and learning purposes only.
+- Intended for demonstration and learning purposes only.
 
 ## Tools Used
 
