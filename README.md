@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-- This repository contains HTML and PDF file of Asciidoc Documentation Project created for topic Radio Communication. 
+- This repository contains HTML and PDF file of Asciidoc Documentation Project created for the topic "Radio Communication". 
 
 - The article in repository provides an overview of the radio communication.
 
