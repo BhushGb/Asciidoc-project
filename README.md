@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This repository contains HTML and PDF files of Asciidoc Documentation Project created for topic Radio Communication. It is intended for demonstration and learning purposes only.
+This repository contains HTML and PDF file of Asciidoc Documentation Project created for topic Radio Communication. It is intended for demonstration and learning purposes only.
 
 ## Purpose and Scope
 
