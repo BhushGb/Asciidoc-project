@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.26">
+<meta name="author" content="Bhushan S. Mapari">
+<title>Radio Communication</title>
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+
+@import url("//fonts.googleapis.com/css?family=Noto+Sans:300,600italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700");
+@import url(https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css); /* Default asciidoc style framework - important */
+
+/* CUSTOMISATIONS */
+/* Change the values in root for quick customisation. If you want even more fine grain... venture further. */
+
+:root{
+--maincolor:#FFFFFF;
+--primarycolor:#2c3e50;
+--secondarycolor:#ba3925;
+--tertiarycolor: #186d7a;
+--sidebarbackground:#CCC;
+--linkcolor:#b71c1c;
+--linkcoloralternate:#f44336;
+--white:#FFFFFF;
+--black:#000000;
+}
+
+/* Text styles */
+h1{color:var(--primarycolor) !important;}
+h2,h3,h4,h5,h6{color:var(--secondarycolor) !important;}
+.title{color:var(--tertiarycolor) !important; font-family:"Noto Sans",sans-serif !important;font-style: normal !important; font-weight: normal !important;}
+p{font-family: "Noto Sans",sans-serif !important}
+
+/* Table styles */
+th{font-family: "Noto Sans",sans-serif !important}
+
+/* Responsiveness fixes */
+video {
+  max-width: 100%;
+}
+
+@media all and (max-width: 600px) {
+table {
+  width: 55vw!important;
+  font-size: 3vw;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/*! Asciidoctor Tabs | Copyright (c) 2018-present Dan Allen | MIT License */
+.tabs {
+    margin-bottom: 1.25em;
+}
+
+.tablist > ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tablist > ul li {
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 0.25em 1em;
+    position: relative;
+}
+
+.tablist > ul li:focus-visible {
+    outline: none;
+}
+
+.tablist.ulist,
+.tablist.ulist > ul li {
+    margin: 0;
+}
+
+.tablist.ulist > ul li + li {
+    margin-left: 0.25em;
+}
+
+.tabs .tablist li::after {
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+}
+
+.tabs.is-loading .tablist li:not(:first-child),
+.tabs:not(.is-loading) .tablist li:not(.is-selected) {
+    background-color: #f5f5f5;
+}
+
+.tabs.is-loading .tablist li:first-child::after,
+.tabs:not(.is-loading) .tablist li.is-selected::after {
+    background-color: #fff;
+}
+
+/*
+.tabs:not(.is-loading) .tablist li,
+.tabs:not(.is-loading) .tablist li::after {
+  transition: background-color 200ms ease-in-out;
+}
+*/
+
+.tablist > ul p {
+    line-height: inherit;
+    margin: 0;
+}
+
+.tabpanel {
+    background-color: #fff;
+    padding: 1.25em;
+}
+
+.tablist > ul li,
+.tabpanel {
+    border: 1px solid #dcdcdc;
+}
+
+.tablist > ul li {
+    border-bottom: 0;
+}
+
+.tabs.is-loading .tabpanel + .tabpanel,
+.tabs:not(.is-loading) .tabpanel.is-hidden {
+    display: none;
+}
+
+.tabpanel > :first-child {
+    margin-top: 0;
+}
+
+/* #content is a signature of the Asciidoctor standalone HTML output */
+#content .tabpanel > :last-child,
+#content .tabpanel > :last-child > :last-child,
+#content .tabpanel > :last-child > :last-child > li:last-child > :last-child {
+    margin-bottom: 0;
+}
+
+.tablecontainer {
+    overflow-x: auto;
+}
+
+#content .tablecontainer {
+    margin-bottom: 1.25em;
+}
+
+#content .tablecontainer > table.tableblock {
+    margin-bottom: 0;
+}
+</style>
+</head>
+<body class="book">
+<div id="header">
+<h1>Radio Communication</h1>
+<div class="details">
+<span id="author" class="author">Bhushan S. Mapari</span><br>
+<span id="email" class="email"><a href="mailto:bhushanmapari19@gmail..com">Contact via email</a></span><br>
+<span id="revdate">2026-06-04</span>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph subtitle">
+<p>This article provides an overview of the radio communication process. The scope of the article covers the history of radio communication, the fundamentals of radio waves, and the radio communication process. The intended audience includes science enthusiasts and readers seeking a foundational understanding of radio communication.</p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_history_of_radio_communication">2. History of Radio Communication</a></li>
+<li><a href="#_radio_wave_and_electromagnetic_spectrum">3. Radio Wave and Electromagnetic Spectrum</a>
+<ul class="sectlevel2">
+<li><a href="#_what_actually_is_a_radio_wave">3.1. What Actually is a Radio Wave?</a></li>
+<li><a href="#_the_electromagnetic_spectrum">3.2. The Electromagnetic Spectrum</a></li>
+<li><a href="#_frequency_distribution_of_radio_waves">3.3. Frequency Distribution of Radio Waves</a></li>
+</ul>
+</li>
+<li><a href="#_block_diagram_of_radio_communication">4. Block Diagram of Radio Communication</a></li>
+<li><a href="#_process_of_radio_communication">5. Process of Radio Communication</a>
+<ul class="sectlevel2">
+<li><a href="#_modulation">5.1. Modulation</a></li>
+<li><a href="#_propagation">5.2. Propagation</a></li>
+<li><a href="#_demodulation">5.3. Demodulation</a></li>
+</ul>
+</li>
+<li><a href="#_conclusion">6. Conclusion</a></li>
+<li><a href="#_references">7. References</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Have you ever wondered how information travels from one place to another without wires? Every day, we use technologies that rely on invisible signals moving through the air. Whether it&#8217;s listening to the radio, watching television, using Wi-Fi, or making a phone call, these activities are made possible by radio waves. Although we cannot see them, radio waves are constantly around us, carrying information and connecting people across the world.</p>
+</div>
+<div class="paragraph">
+<p>A radio wave is an invisible ripple of energy that travels through the air to carry information. Think of it like dropping a stone into a pond. The splash creates ripples in the water that move outward. Instead of water, a radio wave is a ripple of energy moving through the air.</p>
+</div>
+<div class="paragraph">
+<p>Radio wave is a type of wave radiation in the electromagnetic spectrum, which consists of a variety of other waves. The wireless telecommunication by means of radio waves is called <strong>radio communication</strong>. The electromagnetic spectrum is a continuum i.e. a continuous sequence of all electromagnetic waves such as infrared, X-rays, gamma rays, and radio waves, etc.</p>
+</div>
+<div class="paragraph">
+<p>Radio waves consists of oscillating electric and magnetic fields that propagate through space at the speed of light. With long wavelengths and low frequencies, they are particularly suitable for wireless communication systems, including broadcasting, satellite communication, and radar.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_history_of_radio_communication">2. History of Radio Communication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The history of radio communication is a remarkable journey of scientific discovery and technological innovation that transformed the way people communicate across distances.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In 1866, an American dentist, Mahlon Loomis, claimed to demonstrate wireless telegraphy, a method of sending messages without wires.</p>
+</li>
+<li>
+<p>In 1864, James Clerk Maxwell, a Scottish physicist, predicted the existence of electromagnetic waves through mathematical theory.</p>
+</li>
+<li>
+<p>Between 1887 and 1888, a German physicist, Heinrich Hertz, experimentally generated and detected these waves, confirming Maxwell&#8217;s predictions.</p>
+</li>
+<li>
+<p>In the early 1890s, a Serbian-American inventor, Nikola Tesla, developed important ideas and devices related to wireless communication and radio transmission.</p>
+</li>
+<li>
+<p>In 1895, Guglielmo Marconi, an Italian inventor, successfully demonstrated practical wireless telegraphy and proved the feasibility of long-distance radio communication. Tesla and Marconi were involved in a long-running patent dispute over key inventions related to radio technology.</p>
+</li>
+<li>
+<p>In 1895, an Indian scientist, Jagadish Chandra Bose, demonstrated the transmission and detection of radio waves and developed sensitive radio-wave detectors. However, he did not actively pursue patents or commercial applications of his work.</p>
+</li>
+<li>
+<p>In 1906, a Canadian inventor, Reginald Fessenden, conducted one of the first radio broadcasts of voice, music, and entertainment, marking a major milestone in radio communication.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The development of radio communication was a gradual process involving the contributions of numerous scientists and inventors. As a result, the invention of radio remains a subject of historical debate, making it difficult to credit any single individual as its sole inventor. Unlike other inventions, the technology of radio communication is a result of a very long evolution over a period of many years.</p>
+</div>
+<div class="paragraph">
+<p>Although electromagnetic waves were predicted and experimentally demonstrated in the second half of the nineteenth century, their practical applications did not emerge until the late 1890s and early 1900s. The first radio broadcasts were carried out in the early twentieth century, and radio waves were quickly recognized as an efficient means of transmitting information over long distances. Initially used for wireless telegraphy, news broadcasts, and entertainment, the radio technology later evolved into two-way communication systems, wireless telephones, and eventually modern mobile communication networks.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_radio_wave_and_electromagnetic_spectrum">3. Radio Wave and Electromagnetic Spectrum</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_what_actually_is_a_radio_wave">3.1. What Actually is a Radio Wave?</h3>
+<div class="paragraph">
+<p>Radio wave is actually a sine wave of specific frequency. A sine wave is a curve pattern that repeats itself after a fixed time interval. It is important to know about amplitude, frequency and wavelength when it comes to a radio wave. Amplitude, frequency, and wavelength of a sine wave is shown in figure 1.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Amplitude</strong> is a measure of the intensity, loudness, power, strength, or volume level of a wave.</p>
+</li>
+<li>
+<p><strong>Frequency</strong> is basically a number of waves or cycles that pass through a given point every second. It is measured in Hertz (Hz).</p>
+</li>
+<li>
+<p><strong>Wavelength</strong> is an actual distance that you can measure between two of the highest points in a wave. It is the distance between two successive corresponding points on a wave, such as from one crest to the next.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/sine_wave.png" alt="Sine Wave">
+</div>
+<div class="title">Figure 1. Amplitude, frequency, and wavelength of a sine wave</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_the_electromagnetic_spectrum">3.2. The Electromagnetic Spectrum</h3>
+<div class="paragraph">
+<p>The Sun, Earth, and other celestial bodies radiate electromagnetic energy in the form of waves of different wavelengths. Sunlight is a form of electromagnetic (EM) radiation. The electromagnetic spectrum is a continuous range of all electromagnetic waves, including radio waves, infrared, visible light, ultraviolet, X-rays, and gamma rays.</p>
+</div>
+<div class="paragraph">
+<p>As shown in figure 2, the spectrum is organized based on two key properties: wavelength and frequency. At one end of the spectrum having low frequency and long wavelength are <strong>radio waves</strong>. These carry low energies. At the other end having very high frequency and short wavelength are <strong>gamma rays</strong>. Higher-frequency waves, such as gamma rays, carry more energy than lower-frequency waves, such as radio waves. All electromagnetic waves travel through a vacuum at the speed of light. They differ in the amount of energy they carry, which increases with frequency.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EMSpec-final.png" alt="Electromagnetic Spectrum][width=50%">
+</div>
+<div class="title">Figure 2. The Electromagnetic Spectrum</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_frequency_distribution_of_radio_waves">3.3. Frequency Distribution of Radio Waves</h3>
+<div class="paragraph">
+<p>Radio waves are the signals that travel through the air. A radio band is the frequency range those signals can use. A radio band is a small range of frequencies in the radio spectrum that is set aside for a specific use.
+To avoid signals interfering with each other, different services like radio broadcasting, mobile communication, and navigation are assigned with separate frequency ranges. In simple terms, A radio band is just a reserved range of frequencies used for one kind of communication.</p>
+</div>
+<div class="paragraph">
+<p>Radio waves share specific bands of different frequencies. Their frequency range is from 30 Hertz to 300 Gigahertz (GHz). This range is also called as <strong>Radio Frequency (RF)</strong> range. At 30 Hz, the wavelength is approximately 10,000 kilometers (km). At 300 GHz, the corresponding wavelength of a radio wave is approximately 1 millimeter (mm). The distribution of Radio Frequencies is as given in table below.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Distribution of Radio Frequencies</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Band Name</th>
+<th class="tableblock halign-left valign-top">Abbreviation</th>
+<th class="tableblock halign-left valign-top">Frequency</th>
+<th class="tableblock halign-left valign-top">Wavelength</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Super Low Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SLF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30–300 Hz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10,000–1,000 km</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ultra Low Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ULF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">300–3,000 Hz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1,000–100 km</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Very Low Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VLF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3–30 kHz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100–10 km</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30–300 kHz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10–1 km</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">300–3,000 kHz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 km–100 m</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3–30 MHz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100–10 m</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Very High Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VHF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30–300 MHz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10–1 m</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ultra High Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UHF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">300–3,000 MHz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1–0.1 m</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Super High Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SHF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3–30 GHz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100–10 mm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extremely High Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EHF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30–300 GHz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10–1 mm</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Radio waves</strong> have frequencies as high as 300 gigahertz and as low as 30 hertz. Radio waves have both the longest wavelengths and the lowest frequencies.</p>
+</div>
+<div class="paragraph">
+<p><strong>Microwaves</strong> are a subset of radio waves with extremely high frequencies. They are electromagnetic waves that span a broad frequency range from 300 MHz to 300 GHz, corresponding to wavelengths between 1 meter and 1 millimeter. Their exact frequency depends on the specific application; for example, consumer microwave ovens typically operate at 2.45 GHz.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>All microwaves are radio waves, but not all radio waves are microwaves.</p>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_block_diagram_of_radio_communication">4. Block Diagram of Radio Communication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Have you ever wondered how radio waves are actually sent and received? That&#8217;s possible with antennas! An antenna is a device that enables wireless communication by converting energy between electrical signals and radio waves. On transmission, it transforms alternating electric signals into radio waves that propagate through space. On reception, it performs the reverse process—capturing incoming radio waves and converting them back into electrical signals that can be processed by a device. This simple conversion is what makes long-distance wireless communication possible, from radio broadcasting to mobile networks.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/rc3.png" alt="Basic block diagram of radio communication">
+</div>
+<div class="title">Figure 3. Block diagram of radio communication</div>
+</div>
+<div class="paragraph">
+<p>The function of each part from the block diagram of radio communication is as explained below.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Input Source:</strong> This is where the message starts (voice, music, or data).</p>
+</li>
+<li>
+<p><strong>Transmitter:</strong> Converts the input signal into a form suitable for sending. It encodes and modulates the signal onto a high-frequency carrier wave.</p>
+</li>
+<li>
+<p><strong>Transmitting Antenna:</strong> Sends the modulated signal into space as radio waves.</p>
+</li>
+<li>
+<p><strong>Channel (Free Space):</strong> It is the medium through which radio waves travel (air or vacuum). Noise and interference may affect the signal here.</p>
+</li>
+<li>
+<p><strong>Receiving Antenna:</strong> Captures the radio waves from the air.</p>
+</li>
+<li>
+<p><strong>Receiver:</strong> Extracts the original message from the received signal. It demodulates and decodes the signal.</p>
+</li>
+<li>
+<p><strong>Output Device:</strong> Converts the signal back into usable form (sound in a speaker, data on a screen).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_process_of_radio_communication">5. Process of Radio Communication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Radio communication is the wireless transmission of information using electromagnetic waves. It typically involves three main stages:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Modulation</p>
+</li>
+<li>
+<p>Propagation</p>
+</li>
+<li>
+<p>Demodulation</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_modulation">5.1. Modulation</h3>
+<div class="paragraph">
+<p>Every radio, whether it is a traditional radio box or a radio found in your smartphone, all uses a same basic method of transmitting information and the method is modulating the wave before transmitting it. A sine wave (also referred as <strong>carrier signal or carrier wave</strong>) alone does not contain any of the data that we need. This is why, we need to take this sine wave and modulate it. To include speech information or data information, another wave is used for imposing onto carrier signal. That information signal is called as <strong>input signal (modulating wave)</strong>. This process of imposing an input signal onto a carrier wave is called as <strong>modulation</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Modulation is carried out to increase strength of wave so that the information in the carrier will not be affected by atmosphere. The three basic methods of modulation are amplitude modulation (AM), frequency modulation (FM), and pulse modulation. It is as shown in figure 4.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/amfmdm.png" alt="Types of Modulation">
+</div>
+<div class="title">Figure 4. Modulation Methods of Radio Waves</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Amplitude Modulation (AM):</strong> In Amplitude Modulation, the amplitude (strength) of a high-frequency carrier wave is varied in proportion to the message (audio or data) signal, while the frequency and phase stay constant. This method is used in AM radio stations and old analog TV signals.</p>
+</li>
+<li>
+<p><strong>Frequency Modulation (FM):</strong> Frequency modulation changes a sine wave by varying its frequency while keeping amplitude constant. A change in frequency is actually caused by a change in phase over time. This method is used by FM radio stations. Phase modulation is similar to FM. But, the only difference is, the phase of the wave is varied in phase modulation. Phase refers to the position of a point in time (instant) on a wave.</p>
+</li>
+<li>
+<p><strong>Pulse Modulation:</strong> Pulse modulation is a technique in which the signal is transmitted with the information by pulses. A pulse is binary signal i.e. a wave having only zero (0) and one (1) values. Pulse modulation is divided into analog pulse modulation and digital pulse modulation scheme. An <strong>analog pulse modulation</strong> scheme has an input wave that varies continuously like a sine wave. In <strong>digital pulse modulation</strong> scheme, the voice is sampled at some rate. <strong>Sampling</strong> is the process of measuring instant values of a continuous wave in a discrete form. The discrete form is the representation of wave in certain time instants. The wave is compressed after sampling process and turned into a pulse. The pulse is then imposed on the carrier. Digital pulse modulation is also called as digital modulation (DM).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_propagation">5.2. Propagation</h3>
+<div class="paragraph">
+<p>Once the information signal is modulated, it is ready to travel in atmosphere. The behavior of radio waves as they travel, from one point to another, or into various parts of the atmosphere is called as <strong>radio wave propagation</strong>. There are three modes of radio-wave propagation: space wave propagation, surface wave propagation, and sky wave propagation. It is as shown in figure 5.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/prop.png" alt="Types of Propagation][width=50%">
+</div>
+<div class="title">Figure 5. Modes of Radio Wave Propagation</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Space wave propagation:</strong> In this mode, radio waves travel in free space, or away from other objects which affect the way in which they travel. This method was commonly used in old-fashioned telephone networks.</p>
+</li>
+<li>
+<p><strong>Surface wave propagation:</strong> In surface wave propagation, radio waves are modified by ground or terrain over which they travel.</p>
+</li>
+<li>
+<p><strong>Sky wave propagation:</strong> Here, the radio waves are modified by a region high up in the earth&#8217;s atmosphere known as the <strong>ionosphere</strong>. With this method of travel, the radio waves hit the ionosphere, bounce back down to earth, and bounce back up again.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_demodulation">5.3. Demodulation</h3>
+<div class="paragraph">
+<p><strong>Demodulation</strong> is a process of separating original information from a modulated wave. It&#8217;s a reverse process of modulation. A demodulator converts changes in amplitude, frequency, or phase back into the original information signal as shown in figure 6. A <strong>baseband signal</strong> is the original information you want to send. A <strong>bandpass signal</strong> is the baseband signal that has been placed onto a high-frequency carrier wave so it can travel efficiently through a communication channel.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/demod.png" alt="Demodulation">
+</div>
+<div class="title">Figure 6. Demodulation</div>
+</div>
+<div class="paragraph">
+<p>Why demodulation is necessary? It&#8217;s because it separates the audio or message signal from the high-frequency carrier, making it possible to hear or use the original transmitted information. Without demodulation, the transmitted data would remain hidden in the carrier wave and cannot be understood or played back. There are 3 types of demodulation:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>AM demodulation:</strong> Extracts the original message by detecting variations in the amplitude of the received carrier wave.</p>
+</li>
+<li>
+<p><strong>FM demodulation:</strong> Recovers the original message by detecting variations in the frequency of the received carrier wave.</p>
+</li>
+<li>
+<p><strong>Digital demodulation:</strong> Recovers digital data by interpreting changes in the received signal&#8217;s amplitude, frequency, phase, or a combination of these.</p>
+</li>
+</ol>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>The choice of demodulation technique depends on the type of modulation. For example, If transmitted radio wave is amplitude modulated, then AM demodulation technique is used at the receiver. Receiver system is made in such a way that it separates the essential information within the radio wave to extract the data we want, like music, a human voice, etc.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">6. Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is concluded that the radio waves are modulated by various techniques and transmitted at RF range with the help of transmitting antenna. Propagation of radio waves occurs in three modes as they travel in the atmosphere. Receiving antenna helps to capture a radio wave of particular frequency and finally, the demodulation is carried out at receiver. So, the original information signal sent by transmitter is retrieved at the receiver. In this way, radio communication takes place and information is transmitted from one place to another.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references">7. References</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Wikipedia, "Radio Wave", <a href="https://en.wikipedia.org/wiki/Radio_wave" class="bare">https://en.wikipedia.org/wiki/Radio_wave</a></p>
+</li>
+<li>
+<p>Wikipedia, "Distribution of Radio Frequencies", <a href="https://en.wikipedia.org/wiki/Radio_spectrum" class="bare">https://en.wikipedia.org/wiki/Radio_spectrum</a></p>
+</li>
+<li>
+<p>Livescience, "What are radio waves", <a href="https://www.livescience.com/50399-radio-waves.html" class="bare">https://www.livescience.com/50399-radio-waves.html</a></p>
+</li>
+<li>
+<p>US National Institute of Standard and Technology, "Electromagnetic spectrum graphic", <a href="https://www.nist.gov/image/electromagnetic-spectrum-graphic" class="bare">https://www.nist.gov/image/electromagnetic-spectrum-graphic</a></p>
+</li>
+<li>
+<p>Australian Space Weather Forecasting Centre, "Introduction to HF Radio Propagation", <a href="https://www.sws.bom.gov.au/Educational/5/2/2" class="bare">https://www.sws.bom.gov.au/Educational/5/2/2</a></p>
+</li>
+<li>
+<p>geeksforgeeks, "What is Demodulation?",
+<a href="https://www.geeksforgeeks.org/electronics-engineering/what-is-demodulation/" class="bare">https://www.geeksforgeeks.org/electronics-engineering/what-is-demodulation/</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2026-06-04 12:26:41 +0530
+</div>
+</div>
+<script>
+;(function () { /*! Asciidoctor Tabs | Copyright (c) 2018-present Dan Allen | MIT License */
+  'use strict'
+
+  var config = (document.currentScript || {}).dataset || {}
+  var forEach = Array.prototype.forEach
+
+  init(document.querySelectorAll('.tabs'))
+
+  function init (tabsBlocks) {
+    if (!tabsBlocks.length) return
+    forEach.call(tabsBlocks, function (tabs) {
+      var syncIds = tabs.classList.contains('is-sync') ? {} : undefined
+      var tablist = tabs.querySelector('.tablist ul')
+      tablist.setAttribute('role', 'tablist')
+      var start
+      forEach.call(tablist.querySelectorAll('li'), function (tab, idx) {
+        tab.tabIndex = -1
+        tab.setAttribute('role', tab.classList.add('tab') || 'tab')
+        var id, anchor, syncId
+        if (!(id = tab.id) && (anchor = tab.querySelector('a[id]'))) {
+          id = tab.id = anchor.parentNode.removeChild(anchor).id
+        }
+        var panel = id && tabs.querySelector('.tabpanel[aria-labelledby~="' + id + '"]')
+        if (!panel) return idx ? undefined : toggleSelected(tab, true) // invalid state
+        syncIds && (((syncId = tab.textContent.trim()) in syncIds) ? (syncId = undefined) : true) &&
+        (syncIds[(tab.dataset.syncId = syncId)] = tab)
+        idx || (syncIds && (start = { tab: tab, panel: panel })) ? toggleHidden(panel, true) : toggleSelected(tab, true)
+        tab.setAttribute('aria-controls', panel.id)
+        panel.setAttribute('role', 'tabpanel')
+        var onClick = syncId === undefined ? activateTab : activateTabSync
+        tab.addEventListener('click', onClick.bind({ tabs: tabs, tab: tab, panel: panel }))
+      })
+      if (!tabs.closest('.tabpanel')) {
+        forEach.call(tabs.querySelectorAll('.tabpanel table.tableblock'), function (table) {
+          var container = Object.assign(document.createElement('div'), { className: 'tablecontainer' })
+          table.parentNode.insertBefore(container, table).appendChild(table)
+        })
+      }
+      if (start) {
+        var syncGroupId
+        for (var i = 0, lst = tabs.classList, len = lst.length, className; i !== len; i++) {
+          if (!(className = lst.item(i)).startsWith('data-sync-group-id=')) continue
+          tabs.dataset.syncGroupId = syncGroupId = lst.remove(className) || className.slice(19).replace(/\u00a0/g, ' ')
+          break
+        }
+        if (syncGroupId === undefined) tabs.dataset.syncGroupId = syncGroupId = Object.keys(syncIds).sort().join('|')
+        var preferredSyncId = 'syncStorageKey' in config &&
+          window[(config.syncStorageScope || 'local') + 'Storage'].getItem(config.syncStorageKey + '-' + syncGroupId)
+        var tab = preferredSyncId && syncIds[preferredSyncId]
+        tab && Object.assign(start, { tab: tab, panel: document.getElementById(tab.getAttribute('aria-controls')) })
+        toggleSelected(start.tab, true) || toggleHidden(start.panel, false)
+      }
+    })
+    onHashChange()
+    toggleClassOnEach(tabsBlocks, 'is-loading', 'remove')
+    window.setTimeout(toggleClassOnEach.bind(null, tabsBlocks, 'is-loaded', 'add'), 0)
+    window.addEventListener('hashchange', onHashChange)
+  }
+
+  function activateTab (e) {
+    var tab = this.tab
+    var tabs = this.tabs || (this.tabs = tab.closest('.tabs'))
+    var panel = this.panel || (this.panel = document.getElementById(tab.getAttribute('aria-controls')))
+    querySelectorWithSiblings(tabs, '.tablist .tab', 'tab').forEach(function (el) {
+      toggleSelected(el, el === tab)
+    })
+    querySelectorWithSiblings(tabs, '.tabpanel', 'tabpanel').forEach(function (el) {
+      toggleHidden(el, el !== panel)
+    })
+    if (!this.isSync && 'syncStorageKey' in config && 'syncGroupId' in tabs.dataset) {
+      var storageKey = config.syncStorageKey + '-' + tabs.dataset.syncGroupId
+      window[(config.syncStorageScope || 'local') + 'Storage'].setItem(storageKey, tab.dataset.syncId)
+    }
+    if (!e) return
+    var loc = window.location
+    var hashIdx = loc.hash ? loc.href.indexOf('#') : -1
+    if (~hashIdx) window.history.replaceState(null, '', loc.href.slice(0, hashIdx))
+    e.preventDefault()
+  }
+
+  function activateTabSync (e) {
+    activateTab.call(this, e)
+    var thisTabs = this.tabs
+    var thisTab = this.tab
+    var initialY = thisTabs.getBoundingClientRect().y
+    forEach.call(document.querySelectorAll('.tabs'), function (tabs) {
+      if (tabs === thisTabs || tabs.dataset.syncGroupId !== thisTabs.dataset.syncGroupId) return
+      querySelectorWithSiblings(tabs, '.tablist .tab', 'tab').forEach(function (tab) {
+        if (tab.dataset.syncId === thisTab.dataset.syncId) activateTab.call({ tabs: tabs, tab: tab, isSync: true })
+      })
+    })
+    var shiftedBy = thisTabs.getBoundingClientRect().y - initialY
+    if (shiftedBy && (shiftedBy = Math.round(shiftedBy))) window.scrollBy({ top: shiftedBy, behavior: 'instant' })
+  }
+
+  function querySelectorWithSiblings (scope, selector, siblingClass) {
+    var el = scope.querySelector(selector)
+    if (!el) return []
+    var result = [el]
+    while ((el = el.nextElementSibling) && el.classList.contains(siblingClass)) result.push(el)
+    return result
+  }
+
+  function toggleClassOnEach (elements, className, method) {
+    forEach.call(elements, function (el) {
+      el.classList[method](className)
+    })
+  }
+
+  function toggleHidden (el, state) {
+    el.classList[(el.hidden = state) ? 'add' : 'remove']('is-hidden')
+  }
+
+  function toggleSelected (el, state) {
+    el.setAttribute('aria-selected', '' + state)
+    el.classList[state ? 'add' : 'remove']('is-selected')
+    el.tabIndex = state ? 0 : -1
+  }
+
+  function onHashChange () {
+    var id = window.location.hash.slice(1)
+    if (!id) return
+    var tab = document.getElementById(~id.indexOf('%') ? decodeURIComponent(id) : id)
+    if (!(tab && tab.classList.contains('tab'))) return
+    'syncId' in tab.dataset ? activateTabSync.call({ tab: tab }) : activateTab.call({ tab: tab })
+  }
+})()
+</script>
+</body>
+</html>
